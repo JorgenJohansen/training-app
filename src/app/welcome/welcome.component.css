@@ -1,0 +1,15 @@
+.welcome {
+    text-align: center;
+    height: 100%;
+}
+
+.title {
+    text-transform: uppercase;
+}
+.title:hover{
+    font-weight: bold;
+}
+
+.sub-title{
+    text-transform: capitalize;
+}
