@@ -18,6 +18,7 @@ import { NewTrainingComponent } from './training/new-training/new-training.compo
 import { PastTrainingComponent } from './training/past-training/past-training.component';
 import { StopTrainingComponent } from './training/current-training/stop-training/stop-training.component';
 import { AuthService } from 'src/services/auth.service';
+import { TrainingService } from 'src/services/training.service';
 
 
 
@@ -45,7 +46,7 @@ import { AuthService } from 'src/services/auth.service';
     ReactiveFormsModule
 
   ],
-  providers: [AuthService],
+  providers: [AuthService, TrainingService],
   bootstrap: [AppComponent],
   entryComponents: [StopTrainingComponent]
 })
