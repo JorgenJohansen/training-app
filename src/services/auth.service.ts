@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable} from "@angular/core";
 import { Router } from "@angular/router";
 import { Subject } from "rxjs";
 
@@ -11,10 +11,8 @@ export class AuthService {
     authChange = new Subject<boolean>();
     private user!: User | null;
 
-    constructor(private router: Router){
-
-    }
-
+    constructor(private router: Router){}
+    
     registerUser(authData: AuthData){
         this.user = {
             email: authData.email,
@@ -33,6 +31,8 @@ export class AuthService {
 
     logout(){
         this.user = null;
+        // localStorage.setItem('authenthicated', false as string);
+        // let isAuthenticated = localStorage.getItem('authenticated');
         this.authChange.next(false);
     }
 
@@ -46,6 +46,7 @@ export class AuthService {
     }
 
     private authSucess(): void{
+        // let isAuthenticated = localStorage.getItem('authenticated');
         this.authChange.next(true);
         this.router.navigate(['/training']);
     }
