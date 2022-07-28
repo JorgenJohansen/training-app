@@ -1,5 +1,6 @@
 import { Exercise } from "src/models/exercise.model";
 import { Subject } from "rxjs";
+import { DateTime } from 'luxon';
 
 export class TrainingService {
     exerciseChanged = new Subject<Exercise | null>();
@@ -10,8 +11,15 @@ export class TrainingService {
         { id: 'burpees', name: 'Burpees', duration: 60, calories: 8 }
     ];
 
+    private dummyCompletedExercises: Exercise[] = [
+        { id: 'crunches', name: 'Crunches', duration: 12, calories: 8, state:'cancelled', date: new Date()},
+        { id: 'touch-toes', name: 'Touch Toes', duration: 12, calories: 4, state:'cancelled', date: new Date() },
+        { id: 'side-lunges', name: 'Side Lunges', duration: 12, calories: 6, state:'cancelled', date: new Date() },
+        { id: 'burpees', name: 'Burpees', duration: 12, calories: 8, state:'cancelled', date: new Date() }
+    ]
+
     private runningExercise?: Exercise;
-    private completedExercises: Exercise[] = [];
+    private completedExercises: Exercise[] = this.dummyCompletedExercises;
 
     constructor() {}
 
@@ -24,7 +32,10 @@ export class TrainingService {
         }else{
             return undefined;
         }
-        // return this.runningExercise ? {...this.runningExercise} : undefined;
+    }
+
+    getCompletedExercises(): Exercise[]{
+        return [...this.completedExercises];
     }
 
     startExercise(selectedId: string){
