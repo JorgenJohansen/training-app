@@ -34,7 +34,7 @@ import { TrainingService } from 'src/services/training.service';
     SidenavListComponent,
     NewTrainingComponent,
     PastTrainingComponent,
-    StopTrainingComponent
+    StopTrainingComponent,
   ],
   imports: [
     BrowserModule,
