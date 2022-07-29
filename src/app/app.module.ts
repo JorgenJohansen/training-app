@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { provideFirebaseApp, getApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,6 +21,8 @@ import { PastTrainingComponent } from './training/past-training/past-training.co
 import { StopTrainingComponent } from './training/current-training/stop-training/stop-training.component';
 import { AuthService } from 'src/services/auth.service';
 import { TrainingService } from 'src/services/training.service';
+
+import { environment } from 'src/environments/environment';
 
 
 
@@ -43,7 +47,10 @@ import { TrainingService } from 'src/services/training.service';
     MaterialModule,
     FlexLayoutModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
+    provideFirestore(() => getFirestore()),
+    // provideFirestore(() => )
 
   ],
   providers: [AuthService, TrainingService],
