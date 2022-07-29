@@ -15,7 +15,27 @@ export class TrainingService {
         { id: 'crunches', name: 'Crunches', duration: 12, calories: 8, state:'cancelled', date: new Date()},
         { id: 'touch-toes', name: 'Touch Toes', duration: 12, calories: 4, state:'cancelled', date: new Date() },
         { id: 'side-lunges', name: 'Side Lunges', duration: 12, calories: 6, state:'cancelled', date: new Date() },
-        { id: 'burpees', name: 'Burpees', duration: 12, calories: 8, state:'cancelled', date: new Date() }
+        { id: 'burpees', name: 'Burpees', duration: 12, calories: 8, state:'cancelled', date: new Date() },
+        { id: 'crunches', name: 'Crunches', duration: 12, calories: 8, state:'cancelled', date: new Date()},
+        { id: 'touch-toes', name: 'Touch Toes', duration: 12, calories: 4, state:'cancelled', date: new Date() },
+        { id: 'side-lunges', name: 'Side Lunges', duration: 12, calories: 6, state:'cancelled', date: new Date() },
+        { id: 'burpees', name: 'Burpees', duration: 12, calories: 8, state:'cancelled', date: new Date() },
+        { id: 'crunches', name: 'Crunches', duration: 12, calories: 8, state:'cancelled', date: new Date()},
+        { id: 'touch-toes', name: 'Touch Toes', duration: 12, calories: 4, state:'cancelled', date: new Date() },
+        { id: 'side-lunges', name: 'Side Lunges', duration: 12, calories: 6, state:'cancelled', date: new Date() },
+        { id: 'burpees', name: 'Burpees', duration: 12, calories: 8, state:'cancelled', date: new Date() },
+        { id: 'crunches', name: 'Crunches', duration: 12, calories: 8, state:'cancelled', date: new Date()},
+        { id: 'touch-toes', name: 'Touch Toes', duration: 12, calories: 4, state:'cancelled', date: new Date() },
+        { id: 'side-lunges', name: 'Side Lunges', duration: 12, calories: 6, state:'cancelled', date: new Date() },
+        { id: 'burpees', name: 'Burpees', duration: 12, calories: 8, state:'cancelled', date: new Date() },
+        { id: 'crunches', name: 'Crunches', duration: 12, calories: 8, state:'cancelled', date: new Date()},
+        { id: 'touch-toes', name: 'Touch Toes', duration: 12, calories: 4, state:'cancelled', date: new Date() },
+        { id: 'side-lunges', name: 'Side Lunges', duration: 12, calories: 6, state:'cancelled', date: new Date() },
+        { id: 'burpees', name: 'Burpees', duration: 12, calories: 8, state:'cancelled', date: new Date() },
+        { id: 'crunches', name: 'Crunches', duration: 12, calories: 8, state:'cancelled', date: new Date()},
+        { id: 'touch-toes', name: 'Touch Toes', duration: 12, calories: 4, state:'cancelled', date: new Date() },
+        { id: 'side-lunges', name: 'Side Lunges', duration: 12, calories: 6, state:'cancelled', date: new Date() },
+        { id: 'burpees', name: 'Burpees', duration: 12, calories: 8, state:'cancelled', date: new Date() },
     ]
 
     private runningExercise?: Exercise;
@@ -36,6 +56,10 @@ export class TrainingService {
 
     getCompletedExercises(): Exercise[]{
         return [...this.completedExercises];
+    }
+
+    getDummyExercises(): Exercise[]{
+        return [...this.dummyCompletedExercises];
     }
 
     startExercise(selectedId: string){
