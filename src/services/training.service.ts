@@ -1,8 +1,12 @@
 import { Exercise } from "src/models/exercise.model";
 import { Subject } from "rxjs";
-import { DateTime } from 'luxon';
+import { Injectable, OnInit } from "@angular/core";
 
-export class TrainingService {
+import { Firestore, collection, CollectionReference } from "@angular/fire/firestore";
+import { compileNgModule } from "@angular/compiler";
+
+@Injectable()
+export class TrainingService implements OnInit {
     exerciseChanged = new Subject<Exercise | null>();
     private availableExercises: Exercise[] = [
         { id: 'crunches', name: 'Crunches', duration: 30, calories: 8 },
@@ -10,6 +14,7 @@ export class TrainingService {
         { id: 'side-lunges', name: 'Side Lunges', duration: 120, calories: 18 },
         { id: 'burpees', name: 'Burpees', duration: 60, calories: 8 }
     ];
+    // availableExercisesFromFirebase = new CollectionReference();
 
     private dummyCompletedExercises: Exercise[] = [
         { id: 'crunches', name: 'Crunches', duration: 12, calories: 8, state:'cancelled', date: new Date()},
@@ -41,14 +46,17 @@ export class TrainingService {
     private runningExercise?: Exercise;
     private completedExercises: Exercise[] = this.dummyCompletedExercises;
 
-    constructor() {}
+    constructor(protected db: Firestore) {}
+    ngOnInit(): void {
+        // collection(this.db, 'availableExercises').get()
+    }
 
     getAvailableExercises(){
         return this.availableExercises.slice();
     }
     getRunningExercise(): Exercise | undefined {
         if(this.runningExercise){
-            return {...this.runningExercise}
+            return {...this.runningExercise};
         }else{
             return undefined;
         }
