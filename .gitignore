@@ -43,3 +43,7 @@ Thumbs.db
 
 # Environment variables because uploading these to github is really stupid
 .env
+
+# Since TS is difficult
+firebase.ts
+
